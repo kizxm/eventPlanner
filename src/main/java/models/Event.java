@@ -1,16 +1,17 @@
 package models;
 
 public class Event {
-    public int partyGuests;
-    public int partyDrinks;
+    private int partyGuests;
+    private int partyDrinks;
+    private int partyLocation;
 
-    public Event(int partyGuests, int partyDrinks) {
+    public Event(int partyGuests, int partyDrinks, int partyLocation) {
         this.partyGuests = partyGuests;
         this.partyDrinks = partyDrinks;
+        this.partyLocation = partyLocation;
+
     }
-
-
     public int partyCost() {
-        return ((this.partyDrinks) + (this.partyGuests) + 10);
+        return ((this.partyDrinks * 20) + (this.partyGuests * 2) + (this.partyLocation * 50) + 10);
     }
 }
