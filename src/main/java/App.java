@@ -12,18 +12,20 @@ public class App {
         boolean programRunning = true;
         while (programRunning) {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Welcome to Kira's Party Planning! Let's plan your party! >>> 'Plan Party', 'Party Cost', 'Hire Entertainment' or 'Exit'.");
+            System.out.println("Welcome to Kira's Party Planning! Let's plan your party! >>> 'Plan Party', 'Party Cost', or 'Exit'.");
 
             try {
                 String navigationChoice = bufferedReader.readLine();
                 if (navigationChoice.equals("Plan Party")) {
                     System.out.println("How many guests?");
                     int inputGuests = Integer.parseInt(bufferedReader.readLine());
-                    System.out.println("What kind of drinks? Alcoholic(1), Non-Alcoholic(2), or Both(3)?");
+                    System.out.println("What kind of drinks? Please enter a number matching your choice; Alcoholic(1), Non-Alcoholic(2), or Both(3)?");
                     int inputDrink = Integer.parseInt(bufferedReader.readLine());
                     System.out.println("Outdoors(1) or Indoors(2)?");
                     int inputLocation = Integer.parseInt(bufferedReader.readLine());
-                    Event newEvent = new Event(inputGuests, inputDrink, inputLocation);
+                    System.out.println("What would like for entertainment? Bring Your Own(1), DJ(2), Live Band(3)?");
+                    int inputEntertainment = Integer.parseInt(bufferedReader.readLine());
+                    Event newEvent = new Event(inputGuests, inputDrink, inputLocation, inputEntertainment);
                     partyDetails.add(newEvent);
                 }
 
