@@ -12,7 +12,7 @@ public class EventTest {
     @Test
     public void totalFoodCost_Returned_8() throws Exception {
         Event testEvent = new Event(99, "small snacks", "test","test2");
-        assertEquals(7, testEvent.foodCost(testEvent.getPartyFood()));
+        assertEquals(8, testEvent.foodCost(testEvent.getPartyFood()));
     }
 
 
