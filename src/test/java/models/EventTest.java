@@ -6,7 +6,7 @@ public class EventTest {
     @Test
     public void newEvent_InstantiatesCorrectly() throws Exception {
         Event testEvent = new Event(2, "test", "test2", "test3");
-        assertEquals(false, testEvent instanceof Event);
+        assertEquals(true, testEvent instanceof Event);
     }
 
 //    @Test
