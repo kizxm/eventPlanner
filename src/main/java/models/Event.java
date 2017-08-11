@@ -27,19 +27,35 @@ public class Event {
     }
 
     public int drinkCost(String partyDrinks) {
-        int totaldrinkCost = 0;
+        int totalDrinkCost = 0;
         switch (partyDrinks) {
             case "alcoholic":
-                totaldrinkCost = 9;
+                totalDrinkCost = 9;
                 break;
             case "non-alcoholic":
-                totaldrinkCost = 4;
+                totalDrinkCost = 4;
                 break;
             case "both":
-                totaldrinkCost = 13;
+                totalDrinkCost = 13;
                 break;
         }
-        return totaldrinkCost;
+        return totalDrinkCost;
+    }
+
+    public int entertainmentCost(String partyEntertainment) {
+        int totalEntertainmentCost = 0;
+        switch (partyEntertainment) {
+            case "bring your own":
+                totalEntertainmentCost = 10;
+                break;
+            case "DJ":
+                totalEntertainmentCost = 150;
+                break;
+            case "live band":
+                totalEntertainmentCost = 300;
+                break;
+        }
+        return totalEntertainmentCost;
     }
 
 /// calculation methods ///

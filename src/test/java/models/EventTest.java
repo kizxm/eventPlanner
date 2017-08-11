@@ -27,19 +27,10 @@ public class EventTest {
         assertEquals(21, testEvent.fullCatering(testEvent.foodCost(testEvent.getPartyFood()),testEvent.drinkCost(testEvent.getPartyDrinks())));
     }
 
-
-//    @Test
-//    public void eventAddsCorrectly2 () throws Exception {
-//        Event testEvent = new Event (5, 2,3, 1);
-//        assertEquals(460, testEvent.partyCost());
-//    }
-//
-//    @Test
-//    public void eventAddsCorrectly3 () throws Exception {
-//        Event testEvent = new Event (5, 2,3, 3);
-//        assertEquals(43, testEvent.partyCost());
-//    }
-
-
+    @Test
+    public void totalEntertainmentCostReturned_10() throws Exception {
+        Event testEvent = new Event(103, "starve", "non-alcoholic", "bring your own");
+        assertEquals(5, testEvent.entertainmentCost(testEvent.getPartyEntertainment()));
+    }
 
 }
