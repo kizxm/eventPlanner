@@ -3,14 +3,27 @@ package models;
 public class Event {
     private int partyGuests;
     private String partyDrinks;
-    private String partyLocation;
+    private String partyFood;
     private String partyEntertainment;
 
-    public Event(int partyGuests, String partyDrinks, String partyLocation, String partyEntertainment) {
+    public Event(int partyGuests, String partyFood, String partyDrinks, String partyEntertainment) {
         this.partyGuests = partyGuests;
+        this.partyFood = partyFood;
         this.partyDrinks = partyDrinks;
-        this.partyLocation = partyLocation;
         this.partyEntertainment = partyEntertainment;
+    }
+
+    public int foodCost(String partyFood){
+        int totalFoodCost =0;
+        switch (partyFood) {
+            case "starve": totalFoodCost = 0;
+            break;
+            case "small snacks": totalFoodCost = 8;
+            break;
+            case "full dinner": totalFoodCost = 15;
+            break;
+        }
+        return totalFoodCost;
     }
 //
 //    public int partyCost() {
@@ -31,8 +44,8 @@ public class Event {
     public String getPartyDrinks() {
         return partyDrinks;
     }
-    public String getPartyLocation() {
-        return partyLocation;
+    public String getPartyFood() {
+        return partyFood;
     }
     public String getPartyEntertainment() {
         return partyEntertainment;
