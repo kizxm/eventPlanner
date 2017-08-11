@@ -25,6 +25,22 @@ public class Event {
         }
         return totalFoodCost;
     }
+
+    public int drinkCost(String partyDrinks) {
+        int totaldrinkCost = 0;
+        switch (partyDrinks) {
+            case "alcoholic":
+                totaldrinkCost = 9;
+                break;
+            case "non-alcoholic":
+                totaldrinkCost = 4;
+                break;
+            case "both":
+                totaldrinkCost = 13;
+                break;
+        }
+        return totaldrinkCost;
+    }
 //
 //    public int partyCost() {
 //        return ((this.partyDrinks * 20) + (this.partyGuests * 2) + (this.partyLocation * 50) + (this.partyEntertainment * 250) + 10);
