@@ -30,7 +30,7 @@ public class EventTest {
     @Test
     public void totalEntertainmentCostReturned_10() throws Exception {
         Event testEvent = new Event(103, "starve", "non-alcoholic", "bring your own");
-        assertEquals(5, testEvent.entertainmentCost(testEvent.getPartyEntertainment()));
+        assertEquals(10, testEvent.entertainmentCost(testEvent.getPartyEntertainment()));
     }
 
 }
