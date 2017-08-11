@@ -18,7 +18,7 @@ public class EventTest {
     @Test
     public void totalDrinkCost_Returned_9() throws Exception {
         Event testEvent = new Event(101, "test", "alcoholic", "test2");
-        assertEquals(8, testEvent.drinkCost(testEvent.getPartyDrinks()));
+        assertEquals(9, testEvent.drinkCost(testEvent.getPartyDrinks()));
     }
 
 
