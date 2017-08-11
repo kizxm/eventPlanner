@@ -41,18 +41,16 @@ public class Event {
         }
         return totaldrinkCost;
     }
-//
-//    public int partyCost() {
-//        return ((this.partyDrinks * 20) + (this.partyGuests * 2) + (this.partyLocation * 50) + (this.partyEntertainment * 250) + 10);
-//    }
-//
-//    public int partyCouponCost1() {
-//        return ((partyCost() - 500));
-//    }
-//    public int partyCouponCost2() {
-//        return ((partyCost() - 20));
-//    }
 
+/// calculation methods ///
+
+    public int fullCatering(int foodCost, int drinkCost) {
+    int cateringForAll = foodCost + drinkCost;
+    return cateringForAll;
+}
+
+//////////////
+///-------------------------------------------------------------------
 /// getters ///
     public int getPartyGuests() {
         return partyGuests;
