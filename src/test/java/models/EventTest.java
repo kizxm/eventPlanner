@@ -24,7 +24,7 @@ public class EventTest {
     @Test
     public void returnFullCatering_21() throws Exception {
         Event testEvent = new Event(102, "small snacks", "both", "test");
-        assertEquals(20, testEvent.fullCatering(testEvent.foodCost(testEvent.getPartyFood()),testEvent.drinkCost(testEvent.getPartyDrinks())));
+        assertEquals(21, testEvent.fullCatering(testEvent.foodCost(testEvent.getPartyFood()),testEvent.drinkCost(testEvent.getPartyDrinks())));
     }
 
 
