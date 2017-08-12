@@ -42,7 +42,7 @@ public class EventTest {
     @Test
     public void testEvent_testCouponCode_800() throws Exception {
         Event testEvent = new Event(50, "starve", "alcoholic", "bring your own");
-        assertEquals(10, testEvent.oneHundred(950));
+        assertEquals(800, testEvent.oneHundred(950));
     }
 
 }
