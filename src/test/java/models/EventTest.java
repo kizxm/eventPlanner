@@ -45,4 +45,10 @@ public class EventTest {
         assertEquals(800, testEvent.oneHundred(950));
     }
 
+    @Test
+    public void testEvent_InstantiatesStringCoupon() throws Exception {
+        Event testEvent = new Event (350, "small snacks", "non-alcoholic", "live band");
+        assertEquals("Party is not large enough for this code.", testEvent.largeParty(109200));
+    }
+
 }
