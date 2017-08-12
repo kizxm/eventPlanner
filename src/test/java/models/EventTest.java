@@ -36,7 +36,7 @@ public class EventTest {
     @Test
     public void testEvent_calculateCost_16300() throws Exception {
         Event testEvent = new Event (100, "starve", "both", "DJ");
-        assertEquals(16200, testEvent.totalCostNoCoupon(13, 150, 100));
+        assertEquals(16300, testEvent.totalCostNoCoupon(13, 150, 100));
     }
 
 }
