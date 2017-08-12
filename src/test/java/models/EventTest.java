@@ -39,4 +39,10 @@ public class EventTest {
         assertEquals(16300, testEvent.totalCostNoCoupon(13, 150, 100));
     }
 
+    @Test
+    public void testEvent_testCouponCode_800() throws Exception {
+        Event testEvent = new Event(50, "starve", "alcoholic", "bring your own");
+        assertEquals(10, testEvent.oneHundred(950));
+    }
+
 }
