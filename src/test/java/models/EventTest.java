@@ -33,4 +33,10 @@ public class EventTest {
         assertEquals(10, testEvent.entertainmentCost(testEvent.getPartyEntertainment()));
     }
 
+    @Test
+    public void testEvent_calculateCost_16300() throws Exception {
+        Event testEvent = new Event (100, "starve", "both", "DJ");
+        assertEquals(16200, testEvent.totalCostNoCoupon(13, 150, 100));
+    }
+
 }

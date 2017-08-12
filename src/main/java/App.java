@@ -5,66 +5,61 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        boolean programRunning = true;
+        while (programRunning) {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Welcome to Kira's Party Planning! Let's plan your party! >>> 'plan party', or 'exit'.");
 
-//        ArrayList<Event> partyDetails = new ArrayList<>();
-//
-//        boolean programRunning = true;
-//        while (programRunning) {
-//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-//            System.out.println("Welcome to Kira's Party Planning! Let's plan your party! >>> 'Plan Party', 'Party Cost', 'Use a Coupon', or 'Exit'.");
-//
-//            try {
-//
-//                String navigationChoice = bufferedReader.readLine();
-//                if (navigationChoice.equals("Plan Party")) {
-//                    System.out.println("How many guests?");
-//                    int inputGuests = Integer.parseInt(bufferedReader.readLine());
-//                    System.out.println("What kind of drinks? Please enter a number matching your choice; Alcoholic(1), Non-Alcoholic(2), or Both(3)?");
-//                    int inputDrink = Integer.parseInt(bufferedReader.readLine());
-//                    System.out.println("Outdoors(1) or Indoors(2)?");
-//                    int inputLocation = Integer.parseInt(bufferedReader.readLine());
-//                    System.out.println("What would like for entertainment? Bring Your Own(1), DJ(2), Live Band(3)?");
-//                    int inputEntertainment = Integer.parseInt(bufferedReader.readLine());
-//                    Event newEvent = new Event(inputGuests, inputDrink, inputLocation, inputEntertainment);
-//                    partyDetails.add(newEvent);
-//                }
-//
-//
-//                else if (navigationChoice.equals("Party Cost")){
-//                    for (Event oneEvent : partyDetails) {
-//                        int eventCost = oneEvent.partyCost();
-//                        System.out.println("----------------------");
-//                        System.out.println("$" + eventCost );
-//                    }
-//                }
-//
-//                else if (navigationChoice.equals("Use a Coupon")) {
-//                    for (Event discountEvent1 : partyDetails) {
-//                        int eventCost1 = discountEvent1.partyCouponCost1();
-//
-//                        for (Event discountEvent2 : partyDetails) {
-//                            int eventCost2 = discountEvent2.partyCouponCost2();
-//
-//                            System.out.println("Apply a coupon?; '1FREEDJ', '$20OFF'");
-//                            if (bufferedReader.readLine().equals("1FREEDJ")) {
-//                                System.out.println(String.format("New total with Coupon: ", eventCost1));
-//                            } else if (bufferedReader.readLine().equals("$20OFF")) ;
-//                            {
-//                                System.out.println(String.format("New total with Coupon:", eventCost2));
-//                            }
-//                        }
-//                    }
-//                }
-//
-//                else if (navigationChoice.equals("Exit")) {
-//                    System.out.println("See you next time!");
-//                    programRunning = false;
-//                }
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
+            try {
+                String navigationChoice = bufferedReader.readLine();
+                if (navigationChoice.equals("plan party")) {
+                    Event newParty = new Event(1, "empty", "empty", "empty");
+
+                    System.out.println("What kind of food service would you like? 'starve', 'small snacks', 'full dinner'");
+                    newParty.setPartyFood(bufferedReader.readLine());
+                    int mealCost = newParty.foodCost(newParty.getPartyFood());
+
+                    System.out.println("What kind of drinks? 'alcoholic', 'non-alcoholic', or 'both'?");
+                    newParty.setPartyDrinks(bufferedReader.readLine());
+                    int beverageCost = newParty.drinkCost(newParty.getPartyDrinks());
+
+                    System.out.println("How many in your Party?");
+                    newParty.setPartyGuests(Integer.parseInt(bufferedReader.readLine()));
+
+                    System.out.println("What would like for entertainment? Bring your own, DJ, or live band?");
+                    newParty.setPartyEntertainment(bufferedReader.readLine());
+                    int amusementCost = newParty.entertainmentCost(newParty.getPartyEntertainment());
+
+
+                    int totalCost = newParty.totalCostNoCoupon(mealCost, beverageCost, amusementCost);
+                    System.out.println(" ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤");
+                    System.out.println(String.format("Your current total price is $%d.\n", totalCost));
+                    System.out.println("❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤");
+                    System.out.println("Would you like to use one of the following discount codes? -> 'PARTYover150', '150OFF', 'exit'. ");
+
+                    String coupon = bufferedReader.readLine();
+                    if (coupon.equals("150OFF")) {
+                        int newTotal = newParty.oneHundred(totalCost);
+                        System.out.println(String.format("New Total is: $%d ", newTotal));
+                        System.out.println("❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤");
+                        System.out.println("Thank you! -> 'exit'");
+                    } else if (coupon.equals("PARTYover150")){
+                        String holder = newParty.largeParty(totalCost);
+                        System.out.println(holder);
+                    }
+                    }
+
+                else if (navigationChoice.equals("exit")) {
+                    System.out.println("See you next time!");
+                    programRunning = false;
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
 //            }
-        }
+            }
 
+        }
+    }
 }

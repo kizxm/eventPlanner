@@ -58,12 +58,34 @@ public class Event {
         return totalEntertainmentCost;
     }
 
+
+
 /// calculation methods ///
 
     public int fullCatering(int foodCost, int drinkCost) {
-    int cateringForAll = foodCost + drinkCost;
-    return cateringForAll;
+        int cateringForAll = foodCost + drinkCost;
+        return cateringForAll;
 }
+
+    public int totalCostNoCoupon(int fullCatering, int entertainmentCost, int partyGuests){
+        int totalCost = (fullCatering + entertainmentCost) * partyGuests;
+        return totalCost;
+    }
+
+    public int oneHundred(int totalCostNoCoupon) {
+        int offTotal = (totalCostNoCoupon -150);
+        return offTotal;
+    }
+
+    public String largeParty(int totalCost) {
+        String holder = "";
+        if(totalCost < 2850) {
+            holder = "Party is not large enough for this code.";
+        } else if (totalCost >= 2850) {
+            holder = "Coupon added.";
+        }
+        return holder;
+    }
 
 //////////////
 ///-------------------------------------------------------------------
@@ -79,6 +101,21 @@ public class Event {
     }
     public String getPartyEntertainment() {
         return partyEntertainment;
+    }
+//////////////
+///-------------------------------------------------------------------
+/// setters ///
+    public void setPartyGuests(int partyGuests) {
+    this.partyGuests = partyGuests;
+    }
+    public void setPartyDrinks(String partyDrinks) {
+        this.partyDrinks = partyDrinks;
+    }
+    public void setPartyFood(String partyFood) {
+        this.partyFood = partyFood;
+    }
+    public void setPartyEntertainment(String partyEntertainment) {
+        this.partyEntertainment = partyEntertainment;
     }
 //////////////
 }
